@@ -3,9 +3,9 @@
     padding: 0;
     margin: 0;
     font-family: sans-serif;
-    overflow-x: hidden;
 }
-h1,h2,h3,h4,h5,h6,span,p{
+
+h1,h2,h3,h4,h5,h6,span,p,li{
     color: #aaaaaa;
 }
 
@@ -21,10 +21,21 @@ h2{
     margin-top: 30px;
 }
 
-p{
+h3{
+    color: #3995ff;
+    font-size: 2em;
+}
+
+p, li{
     font-size: 1.15em;
-    text-align: center;
-    font-weight:lighter;
+    text-align: justify;
+}
+
+li{
+    margin-top: 20px;
+    color:#395a81;
+    font-style: italic;
+    margin-left: 30px;
 }
 .row{
     height: 0;
@@ -53,21 +64,28 @@ header{
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    position: absolute;
+    z-index: 5;
+}
+#hidden{
+    height: 100vh;
+    width: 300vw;
+    overflow: hidden;
 }
 #box-slider{
     height: 100vh;
     width: 300vw;
     display: flex;
     position: absolute;
+    overflow: hidden;
     top: 0;
     left: 0;
     transition: all 0.5s ease-in-out;
     transition-timing-function:cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    overflow: hidden;
-    background-color: #191919;
     .slider{
-        overflow: hidden;
         position: relative;
+        overflow: hidden;
+        width: 100vw;
         clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 90%, 50% 100%, 37% 90%, 0 90%);
         h1{
             position: absolute;
@@ -79,21 +97,32 @@ header{
         img{
             height: 100vh;
             min-height: 100vh;
-            width: 100vw;
+            width: 100%;
             object-fit: cover;
             object-position: center;
             z-index: -1;
-            filter: brightness(0.4);
+            filter: brightness(0.3);
         }
     }
 }
 
 main{
-    background-color: #191919;
+    position: relative;
+    background-color: #191919ec;
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 100%;
+    padding-top: 100vh;
+    #fondoMain{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+        top: 0;
+    }
+
     section{
         display: grid;
         width: 100%;
@@ -108,12 +137,10 @@ main{
             box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.239);
         }
         article{
-            display: grid;
+            display: flex;
+            flex-direction: column;
             gap: 20px;
+            align-items: flex-start;
         }
-    }
-
-    section:nth-child(3){
-        align-items: center;
     }
 }
